@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Single Product Detail</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+	<link href="css/customized_pagination_object.css" rel="stylesheet" />
+    <link href="css/customized_product_grouping.css" rel="stylesheet" />
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/customized_pagination_object_v1.5.js"></script>
+    <script src="js/customized_product_grouping_v1.0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-body bg-white py-0 pr-0">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="py-3">
+                                    <div class="shadow-sm mr-3" style="border:1px solid #cccccc;border-radius:0.25rem;">
+                                        <div class="d-flex justify-content-center">
+                                            <img id="product_image" class="img-fluid p-3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="py-3">
+                                    <div class="">
+                                        <h4 id="product_title_header"></h4>
+                                        <div class=""> <p id="product_sub_title_header"></p> </div>
+                                    </div>
+                                    <div class="">
+                                        <p class="details_product_info_content_author">
+                                            <span class="pr-1">by</span>
+                                            <a id="details_product_info_content_author_anchor"> </a>
+                                        </p>
+                                        <div class="details_product_info_content_category d-flex align-items-center">
+                                            <span class="pr-1 font-weight-bold">Category: </span>
+                                            <a id="details_product_info_content_category_anchor" class="ml-2">  </a>
+                                        </div>
+                                        <div class="details_product_info_content_quantity d-none">
+                                            <button class="btn js-minus-btn">
+                                                <i class="ion-ios-minus-empty"></i>
+                                            </button>
+                                            <input type="text" class="form-control js-quantity-input" value="1" id="js--details-quantity" readonly="">
+                                            <button class="btn js-plus-btn">
+                                                <i class="ion-ios-plus-empty"></i>
+                                            </button>
+                                        </div>
+
+                                        <div id="details_product_info_content_rating">  </div>
+
+                                        <div class="details-product-info__content-product-price">
+                                            <p class="price__strike-through">
+                                                <strike id="product_original_price" class="text-secondary"> </strike>
+                                            </p>
+                                            <p>
+                                                <span id="product_sell_price" class="text-dark font-weight-bold mr-2"></span>
+                                                <span id="product_price_off" class="font-weight-light">
+                                                    <span class="">You Save TK. 9</span> (10%)
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="ebook-wrapper">
+                                            <button type="button" class="btn shadow-sm" style="border: 1px solid rgb(0, 123, 255);">
+                                                <i class="fa fa-product" style="color:rgb(0, 123, 255);"> </i>
+                                                <a class="text-decoration-none" href="#"> Request for eBook </a>
+                                            </button>
+                                        </div>
+
+                                        <div class="d-flex"> </div>
+                                    </div>
+                                    <div class="details-btn">
+                                        <div class="row no-gutters">
+                                            <div class="col">
+                                                <button class="btn btn-outline-success shadow-sm m-1"> একটু পড়ে দেখুন </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="share-info">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="details-product-info__wishlist">
+                                                <div class="wishlist-dropdown">
+                                                    <a id="js--save-to-booklist" class="btn text-secondary shadow-sm">
+                                                        <i class="fa fa-heart-o mr-2"></i> Add to Booklist
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex share-link">
+                                                <div class="dropdown">
+                                                    <button id="dropdownMenuButton" type="button" class="btn text-secondary shadow-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-share-alt mr-2"></i> <span>Share This Book</span>
+                                                    </button>
+                                                    <div class="dropdown-menu text-center p-0" aria-labelledby="dropdownMenuButton">
+                                                        <a href="" class="dropdown-item alert-primary" data-js="facebook-share">
+                                                            <i class="fa fa-facebook"></i>
+                                                        </a>
+                                                        <a href="" class="dropdown-item alert-success" data-js="twitter-share">
+                                                            <i class="fa fa-twitter"></i>
+                                                        </a>
+                                                        <a href="" class="dropdown-item alert-secondary" data-js="linkedin-share">
+                                                            <i class="fa fa-linkedin"></i>
+                                                        </a>
+                                                        <a href="" class="dropdown-item alert-info" data-js="instagram-share">
+                                                            <i class="fa fa-instagram"></i>
+                                                        </a>
+                                                        <a href="" class="dropdown-item alert-warning" data-js="pinterest-share">
+                                                            <i class="fa fa-pinterest"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 alert-secondary">
+                                <div class="py-3">
+                                    <div class="mr-md-3">
+                                        <div class="text-secondary" style="border-bottom:1px solid #b5b9bd!important;">
+                                            <div class="d-flex mt-3">
+                                                <i class="fa fa-money"></i>
+                                                <p class="text-capitalize ml-3">Cash on delivery</p>
+                                            </div>
+                                            <div class="d-flex mt-4">
+                                                <i class="fa fa-rotate-left"></i>
+                                                <p class="text-capitalize ml-3">3 days happy return</p>
+                                            </div>
+                                            <div class="d-flex mt-4">
+                                                <i class="fa fa-paypal"></i>
+                                                <p class="text-capitalize ml-3">
+                                                    Delivery Charge Tk. 50(Online order)
+                                                </p>
+                                            </div>
+                                            <div class="d-flex info">
+                                                <i class="fa fa-buysellads"></i>
+                                                <p class="text-capitalize ml-3">
+                                                    Purchase &amp; Earn
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="horizontal_product_container"> </div>
+
+    <script>
+        loadProductDetail();
+        function loadProductDetail() {
+            //$.ajax({
+            //    url: "",
+            //    type: "POST",
+            //    contentType: "application/json; charset-utf-8",
+            //    success: function (resp) {
+            //        if (resp.error) {
+            //            toastr.error(resp.message);
+            //        } else {
+
+            //        }
+            //    }
+            //});
+
+            let resp = {
+                "error": false,
+                "data": {
+                    "product_image_src": "https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/260X372/d499a6875_57159.jpg",
+                    "product_title": "দ্য বন্ডম্যান, নীল অন্ধকার ও দি অ্যামফিবিয়ান ম্যান",
+                    "product_sub_title": "৩টি বই একত্রে",
+                    "product_owner": "কাজী মায়মুর হোসেন",
+                    "product_owner_link": "/product/author/5372",
+                    "product_category": "অনুবাদ: শিশু-কিশোর",
+                    "product_category_link": "/product/category/445",
+                    "product_rating": "1 Reviews",
+                    "product_original_price": "86",
+                    "product_sell_price": "77",
+                    "product_price_off": "9",
+                }
+            };
+
+            showProductDetail(resp.data);
+        };
+
+        function showProductDetail(data) {
+            $("#product_image").attr("src", data.product_image_src);
+            $("#product_title_header").text(data.product_title);
+            $("#product_sub_title_header").text(data.product_sub_title);
+            $("#details_product_info_content_author_anchor").text(data.product_owner).attr("href", data.product_owner_link);
+            $("#details_product_info_content_category_anchor").text(data.product_category).attr("href", data.product_category_link);
+            $("#details_product_info_content_rating").text(data.product_rating);
+            $("#product_original_price").text("TK. " + data.product_original_price);
+            $("#product_sell_price").text("TK. " + data.product_sell_price);
+            $("#product_price_off").html(`<span class="">You Save TK. ${data.product_price_off}</span> (${parseInt(parseInt(data.product_price_off) * 100 / parseInt(data.product_original_price))}%)`);
+        };
+
+        function printPageNo(pageNo) {
+            console.log(`You clicked ${pageNo}.`);
+        };
+
+        loadSimilarProductData();
+
+        function loadSimilarProductData() {
+            //$.ajax({
+            //    url: "",
+            //    type: "POST",
+            //    contentType: "application/json; charset-utf-8",
+            //    success: function (resp) {
+            //        if (resp.error) {
+            //            toastr.error(resp.message);
+            //        } else {
+
+            //        }
+            //    }
+            //});
+
+            let resp = {
+                "error": false,
+                "data": {
+                    "product_category_title": "Customers who bought this product also bought",
+                    "seealllink": "",
+                    "products": [{
+                        "title": "Product Title - 01",
+                        "imagesrc": "/Images/product/images/product 01.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 02",
+                        "imagesrc": "/Images/product/images/product 02.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 03",
+                        "imagesrc": "/Images/product/images/product 03.jpg",
+                        "previousprice": "32000",
+                        "currentprice": "23000"
+                    },
+                    {
+                        "title": "Product Title - 04",
+                        "imagesrc": "/Images/product/images/product 04.jpg",
+                        "previousprice": "542000",
+                        "currentprice": "525000"
+                    },
+                    {
+                        "title": "Product Title - 05",
+                        "imagesrc": "/Images/product/images/product 05.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 06",
+                        "imagesrc": "/Images/product/images/product 06.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 07",
+                        "imagesrc": "/Images/product/images/product 07.jpg",
+                        "previousprice": "6000",
+                        "currentprice": "5000"
+                    },
+                    {
+                        "title": "Product Title - 08",
+                        "imagesrc": "/Images/product/images/product 08.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 09",
+                        "imagesrc": "/Images/product/images/product 09.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 10",
+                        "imagesrc": "/Images/product/images/product 10.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 11",
+                        "imagesrc": "/Images/product/images/product 11.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 12",
+                        "imagesrc": "/Images/product/images/product 12.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 13",
+                        "imagesrc": "/Images/product/images/product 13.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 14",
+                        "imagesrc": "/Images/product/images/product 14.jpg",
+                        "previousprice": "18299",
+                        "currentprice": "15999"
+                    },
+                    {
+                        "title": "Product Title - 15 mnshsedoiv",
+                        "imagesrc": "/Images/product/images/product 15.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 16 mnsdoiv",
+                        "imagesrc": "/Images/product/images/product 16.jpg",
+                        "previousprice": "123456",
+                        "currentprice": "112233"
+                    }
+                    ]
+                }
+            };
+            
+            let productGroup1 = new ProductGroup("#horizontal_product_container", resp.data);
+            console.log(productGroup1);
+            productGroup1.start();
+            
+            //$('img').on("error", function () {
+              //  $(this).attr("src", "//homestaymatch.com/images/no-image-available.png");
+            //});
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Show All Product 2</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+    <link href="css/customized_pagination_object.css" rel="stylesheet" />
+    <link href="css/customized_product_grouping.css" rel="stylesheet" />
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script src="js/customized_pagination_object_v1.5.js"></script>
+    <script src="js/customized_product_grouping_v1.0.js"></script>
+</head>
+
+<body>
+    <div id="horizontal_product_container"> </div>
+    <div id="horizontal_product_container2"> </div>
+
+    <script>
+        function printPageNo(pageNo) {
+            console.log(`You clicked ${pageNo}.`);
+        };
+
+        loadProductData();
+
+        function loadProductData() {
+            //$.ajax({
+            //    url: "",
+            //    type: "POST",
+            //    contentType: "application/json; charset-utf-8",
+            //    success: function (resp) {
+            //        if (resp.error) {
+            //            toastr.error(resp.message);
+            //        } else {
+
+            //        }
+            //    }
+            //});
+
+            let resp = {
+                "error": false,
+                "data": {
+                    "product_category_title": "New Arrival",
+                    "seealllink": "",
+                    "products": [{
+                        "title": "Product Title - 01",
+                        "imagesrc": "/Images/product/images/product 01.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 02",
+                        "imagesrc": "/Images/product/images/product 02.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 03",
+                        "imagesrc": "/Images/product/images/product 03.jpg",
+                        "previousprice": "32000",
+                        "currentprice": "23000"
+                    },
+                    {
+                        "title": "Product Title - 04",
+                        "imagesrc": "/Images/product/images/product 04.jpg",
+                        "previousprice": "542000",
+                        "currentprice": "525000"
+                    },
+                    {
+                        "title": "Product Title - 05",
+                        "imagesrc": "/Images/product/images/product 05.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 06",
+                        "imagesrc": "/Images/product/images/product 06.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 07",
+                        "imagesrc": "/Images/product/images/product 07.jpg",
+                        "previousprice": "6000",
+                        "currentprice": "5000"
+                    },
+                    {
+                        "title": "Product Title - 08",
+                        "imagesrc": "/Images/product/images/product 08.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 09",
+                        "imagesrc": "/Images/product/images/product 09.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 10",
+                        "imagesrc": "/Images/product/images/product 10.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 11",
+                        "imagesrc": "/Images/product/images/product 11.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 12",
+                        "imagesrc": "/Images/product/images/product 12.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 13",
+                        "imagesrc": "/Images/product/images/product 13.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 14",
+                        "imagesrc": "/Images/product/images/product 14.jpg",
+                        "previousprice": "18299",
+                        "currentprice": "15999"
+                    },
+                    {
+                        "title": "Product Title - 15 mnshsedoiv",
+                        "imagesrc": "/Images/product/images/product 15.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 16 mnsdoiv",
+                        "imagesrc": "/Images/product/images/product 16.jpg",
+                        "previousprice": "123456",
+                        "currentprice": "112233"
+                    }
+                    ]
+                }
+            };
+
+
+            let productGroup1 = new ProductGroup("#horizontal_product_container", resp.data);
+            console.log(productGroup1);
+            productGroup1.start();
+
+            let productGroup2 = new ProductGroup("#horizontal_product_container2", resp.data, 6, "grid", {
+                totalPageCount: 17,
+                showPageCount: 7,
+                currentPageNo: 2,
+                callback: printPageNo
+            });
+            console.log(productGroup2);
+            productGroup2.start();
+
+            //$('img').on("error", function () {
+              //  $(this).attr("src", "//homestaymatch.com/images/no-image-available.png");
+            //});
+        };
+
+    </script>
+</body>
+
+</html>
