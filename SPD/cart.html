@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Single Product Detail</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #e2e3e5;
+        }
+    </style>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="container_div" class="container"></div>
+    
+    <script>
+        loadProductCardDetail();
+        function loadProductCardDetail() {
+            //$.ajax({
+            //    url: "",
+            //    type: "POST",
+            //    contentType: "application/json; charset-utf-8",
+            //    success: function (resp) {
+            //        if (resp.error) {
+            //            toastr.error(resp.message);
+            //        } else {
+
+            //        }
+            //    }
+            //});
+
+            let resp = {
+                "error": false,
+                "data": [{
+                    "productid": "147852",
+                    "producttitle": "দ্য বন্ডম্যান, নীল অন্ধকার ও দি অ্যামফিবিয়ান ম্যান",
+                    "productlink": "/product/57159/the-bondman--nil-andokar-o-the-ahmfebeyan-man",
+                    "productimage": "https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/260X372/d499a6875_57159.jpg",
+                    "productowner": "কাজী মায়মুর হোসেন",
+                    "productoriginalprice": "86",
+                    "productsellprice": "77"
+                },
+                {
+                    "productid": "369852",
+                    "producttitle": "সহজ ক্যালকুলাস",
+                    "productlink": "/product/121205/shohoz-calculus",
+                    "productimage": "https://s3-ap-southeast-1.amazonaws.com/rokomari110/ProductNew20190903/130X186/6226b8e2e404_121205.gif",
+                    "productowner": "মুহম্মদ জাফর ইকবাল",
+                    "productoriginalprice": "160",
+                    "productsellprice": "141"
+                }]
+            };
+
+            showProductCardDetail(resp.data);
+        };
+
+        function showProductCardDetail(data) {
+            $("#container_div").empty();
+
+            if (!data.length) {
+                $("#container_div").html(`<h1 class="d-flex justify-content-center py-3">Your Cart is Empty!</h1> 
+                        <div class="d-flex justify-content-around p-3">
+                            <a href="" class="btn btn-warning text-white font-weight-bold shadow-sm py-2 px-3" style="background-color:rgb(255, 153, 0);">Go to Shipping Page</a></div>`);
+
+                return;
+            }
+
+            let subtotal = 0;
+            let discount = 0;
+            let wrapperCost = 20;
+            let shippingCost = 50;
+            let totalCost = 0;
+            let payableTotalCost = 0;
+
+            let totalPriceoffCost = 0;
+
+            data.map(a => subtotal += parseFloat(a.productsellprice));
+            data.map(a => totalPriceoffCost += (parseFloat(a.productoriginalprice) - parseFloat(a.productsellprice)));
+
+            totalCost = subtotal + shippingCost;
+            payableTotalCost = totalCost - discount;
+
+
+            let rowDiv1 = $("<div>").attr("class", "row");
+
+            let div1 = $("<div>").attr("class", "col-md-8").appendTo(rowDiv1);
+
+            let div2 = $("<div>").attr("class", "bg-white shadow-sm my-3").appendTo(div1);
+            let div3 = $("<div>").attr("class", "d-flex justify-content-between p-3").appendTo(div2);
+
+            let h5Tag1 = $("<h5>").attr("class", "align-self-center").append(`My Cart (${data.length} Items)`).appendTo(div3);
+
+            let h5Tag2 = $("<h5>").attr("class", "text-right").append(`Total: <em> ${payableTotalCost} Tk. </em>`);
+            let anchorTag1 = $("<a>").attr("class", "text-right w-100 text-success").append(`You are saving total <span>TK. ${totalPriceoffCost}</span>`);
+            div3.append($("<div>").append(h5Tag2, anchorTag1));
+
+            let div4 = $("<div>").attr("class", "bg-white shadow-sm my-0 pb-3").appendTo(div1);
+
+            $.each(data, function (key, value) {
+                let rowDiv2 = $("<div>").attr("class", "row px-3").appendTo(div4);
+
+                let div5 = $("<div>").attr("class", "col-3 col-md-2").appendTo(rowDiv2);
+                let div6 = $("<div>").attr("class", "mt-4").appendTo(div5);
+                let anchorTag2 = $("<a>")
+                    .append(`<img class="img-fluid" src="${value.productimage}">`)
+                    .attr({
+                        "target": "_blank",
+                        "href": value.productlink
+                    }).appendTo(div6);
+
+                let div7 = $("<div>").attr("class", "col-9 col-md-10 pl-lg-1").appendTo(rowDiv2);
+
+                let div8 = $("<div>").attr("class", "mt-4").appendTo(div7);
+
+                let anchorTag3 = $("<a>")
+                    .append(value.producttitle)
+                    .attr({
+                        "target": "_blank",
+                        "href": value.productlink,
+                        "class": "text-decoration-none text-dark"
+                    }).appendTo(div6);
+                let paragraphTag1 = $("<p>").attr("class", "text-black-50 mt-1").append(value.productowner);
+                div8.append($("<div>").append(anchorTag3, paragraphTag1));
+
+                let rowDiv3 = $("<div>").attr("class", "row align-items-baseline").appendTo(div8);
+
+                let div9 = $("<div>").attr("class", "col-6 col-lg-3").appendTo(rowDiv3);
+                let anchorTag4 = $("<a>")
+                    .append(`<i class="fa fa-trash"></i>`)
+                    .attr({
+                        "href": "",
+                        "class": "text-secondary",
+                        "style": "font-size:25px;"
+                    }).appendTo(div9);
+
+                let div10 = $("<div>").attr({
+                    "class": "col-6 col-lg-3",
+                    "style": "text-align:-webkit-right;text-align:-moz-right;"
+                }).appendTo(rowDiv3);
+
+                let div11 = $("<div>").attr({
+                    "class": "input-group input-group-sm mb-3",
+                    "style": "width:100px;"
+                }).appendTo(div10);
+
+                let minusButton = $("<button>").attr("class", "btn btn-secondary").append(`<i class="fa fa-minus"></i>`);
+                let productInput = $("<input>")
+                    .attr({
+                        "class": "form-control form-control-sm text-center bg-white",
+                        "value": "1",
+                        "disabled": true
+                    });
+                let plusButton = $("<button>").attr("class", "btn btn-secondary").append(`<i class="fa fa-plus"></i>`);
+                div11.append(
+                    $("<div>").attr("class", "input-group-prepend").append(minusButton),
+                    productInput,
+                    $("<div>").attr("class", "input-group-append").append(plusButton));
+
+
+                let div14 = $("<div>")
+                    .attr("class", "col-6 col-lg-3")
+                    .append(`<p class="h5 text-secondary"> <strike> Tk. ${value.productoriginalprice} </strike> </p>`)
+                    .appendTo(rowDiv3);
+
+                let div15 = $("<div>")
+                    .attr("class", "col-6 col-lg-3")
+                    .append(`<p class="text-right h5 font-weight-bold"> Tk. ${value.productsellprice} </p>`)
+                    .appendTo(rowDiv3);
+
+                if (data.length > key + 1) {
+                    div4.append(`<div class="mx-3"><hr /></div>`);
+                }
+
+                (function ($) {
+                    anchorTag4.on("click", function (e) {
+                        e.preventDefault();
+                        let totalItem = 0;
+                        let itemDiv = div4.children();
+                        $.each(itemDiv, function (i, val) {
+                            if ($(val).hasClass("row")) {
+                                totalItem += 1;
+                            }
+                        });
+
+                        let noOfProduct = parseFloat(productInput.val());
+                        let originalPrice = parseFloat(value.productoriginalprice);
+                        let sellPrice = parseFloat(value.productsellprice);
+
+                        if (totalItem == 1) {
+                            subtotal = 0;
+                            wrapperCost = 0;
+                            shippingCost = 0;
+                            totalCost = 0;
+                            payableTotalCost = 0;
+                            totalPriceoffCost = 0;
+
+                            wrapperRow.find("td:last").text(`${wrapperCost} TK.`);
+                            shippingRow.find("td:last").text(`${shippingCost} TK.`);
+                        }
+                        else {
+                            subtotal -= (sellPrice * noOfProduct);
+                            totalCost -= (sellPrice * noOfProduct);
+                            payableTotalCost -= (sellPrice * noOfProduct);
+                            totalPriceoffCost -= (originalPrice * noOfProduct) - (sellPrice * noOfProduct);
+                        }
+
+                        subtotalRow.find("td:last").text(`${subtotal} TK.`);
+                        totalRow.find("td:last").text(`${totalCost} TK.`);
+                        payableRow.find("td:last").text(`${payableTotalCost} TK.`);
+                        h5Tag2.html(`Total: <em> ${payableTotalCost} Tk. </em>`);
+                        anchorTag1.html(`You are saving total <span>TK. ${totalPriceoffCost}</span>`);
+
+                        if (rowDiv2.prev().hasClass("mx-3")) {
+                            rowDiv2.prev().remove();
+                        }
+                        rowDiv2.remove();
+                    });
+
+                    minusButton.on("click", function (e) {
+                        e.preventDefault();
+
+                        if (parseInt(productInput.val()) > 1) {
+                            let noOfProduct = parseFloat(productInput.val()) - 1;
+                            let originalPrice = parseFloat(value.productoriginalprice);
+                            let sellPrice = parseFloat(value.productsellprice);
+
+                            subtotal -= sellPrice;
+                            totalCost -= sellPrice;
+                            payableTotalCost -= sellPrice;
+                            totalPriceoffCost -= (originalPrice - sellPrice);
+
+                            productInput.val(noOfProduct);
+                            div14.html(`<p class="h5 text-secondary"> <strike> Tk. ${originalPrice * noOfProduct} </strike> </p>`);
+                            div15.html(`<p class="text-right h5 font-weight-bold"> Tk. ${sellPrice * noOfProduct} </p>`);
+
+                            subtotalRow.find("td:last").text(`${subtotal} TK.`);
+                            totalRow.find("td:last").text(`${totalCost} TK.`);
+                            payableRow.find("td:last").text(`${payableTotalCost} TK.`);
+                            h5Tag2.html(`Total: <em> ${payableTotalCost} Tk. </em>`);
+                            anchorTag1.html(`You are saving total <span>TK. ${totalPriceoffCost}</span>`);
+                        }
+                        else {
+                            console.log("No of product has to be greater or equal to 1.");
+                        }
+                    });
+
+                    plusButton.on("click", function (e) {
+                        e.preventDefault();
+
+                        let noOfProduct = parseFloat(productInput.val()) + 1;
+                        let originalPrice = parseFloat(value.productoriginalprice);
+                        let sellPrice = parseFloat(value.productsellprice);
+
+                        subtotal += sellPrice;
+                        totalCost += sellPrice;
+                        payableTotalCost += sellPrice;
+                        totalPriceoffCost += (originalPrice - sellPrice);
+
+                        productInput.val(noOfProduct);
+                        div14.html(`<p class="h5 text-secondary"> <strike> Tk. ${originalPrice * noOfProduct} </strike> </p>`);
+                        div15.html(`<p class="text-right h5 font-weight-bold"> Tk. ${sellPrice * noOfProduct} </p>`);
+
+                        subtotalRow.find("td:last").text(`${subtotal} TK.`);
+                        totalRow.find("td:last").text(`${totalCost} TK.`);
+                        payableRow.find("td:last").text(`${payableTotalCost} TK.`);
+                        h5Tag2.html(`Total: <em> ${payableTotalCost} Tk. </em>`);
+                        anchorTag1.html(`You are saving total <span>TK. ${totalPriceoffCost}</span>`);
+                    });
+                })(jQuery);
+            });
+
+            let div16 = $("<div>").attr({
+                "class": "bg-white shadow-sm mb-3",
+                "style": "border-top:1px solid grey;"
+            }).appendTo(div1);
+
+            let div17 = $("<div>").attr("class", "d-flex justify-content-around p-3").appendTo(div16);
+            let anchorTag5 = $("<a>")
+                .append(`Order as a Gift`)
+                .attr({
+                    "href": "/shipping?isgift=1",
+                    "class": "btn btn-outline-primary shadow-sm py-2 px-3"
+                }).appendTo(div17);
+
+            let anchorTag6 = $("<a>")
+                .append(`Go to Shipping Page`)
+                .attr({
+                    "href": "/shipping?isgift=0",
+                    "class": "btn btn-warning text-white font-weight-bold shadow-sm py-2 px-3",
+                    "style": "background-color:rgb(255, 153, 0);"
+                }).appendTo(div17);
+
+            let div18 = $("<div>").attr("class", "col-md-4").appendTo(rowDiv1);
+
+            let div19 = $("<div>").attr("class", "shadow-sm bg-white my-3").appendTo(div18);
+            div19.append(`<div class="px-3 pt-3"> <h5>Checkout Summary</h5> </div>  <div class="mx-3"><hr /></div>`);
+
+            let countrySelect = $("<select>").attr("class", "custom-select").appendTo($("<div>").attr("class", "m-3").appendTo(div19));
+            $("<option>").text("বাংলাদেশ").val("1").appendTo(countrySelect);
+
+            let div20 = $("<div>").attr("class", "px-3 pb-3").appendTo(div19);
+
+            let table = $("<table>").attr("class", "table").appendTo(div20);
+            let subtotalRow = $("<tr>").append(`<td>Subtotal</td> <td class="text-right"> ${subtotal} TK. </td>`).appendTo(table);
+            let discountRow = $("<tr>").attr("class", "d-none").append(`<td>Discount</td> <td class="text-right"> ${discount} TK. </td>`).appendTo(table);
+            let wrapperRow = $("<tr>").attr("class", "d-none").append(`<td>Gift Wrap</td> <td class="text-right"> ${wrapperCost} TK.</td>`).appendTo(table);
+            let shippingRow = $("<tr>").append(`<td>Shipping</td> <td class="text-right">${shippingCost} TK. </td>`).appendTo(table);
+            let totalRow = $("<tr>").append(`<td>Total</td> <td class="text-right">${totalCost} TK. </td>`).appendTo(table);
+            let payableRow = $("<tr>").append(`<td class="font-weight-bold">Payable Total</td> <td class="text-right font-weight-bold">${payableTotalCost} TK. </td>`).appendTo(table);
+
+            let div21 = $("<div>").attr("class", "ml-2").appendTo(div20);
+
+            let div22 = $("<div>").attr("class", "custom-control custom-checkbox").appendTo(div21);
+            let giftwrapCheckbox = $("<input>")
+                .attr({
+                    "id": "giftwrap_checkbox",
+                    "class": "custom-control-input",
+                    "type": "checkbox"
+                }).appendTo(div22);
+            div22.append(`<label class="custom-control-label" for="giftwrap_checkbox"> Gift Wrap for Tk. ${20} </label>`);
+
+            (function ($) {
+                giftwrapCheckbox.on("change", function (e) {
+                    wrapperRow.toggleClass("d-none");
+                    if (wrapperRow.hasClass("d-none")) {
+                        totalCost -= wrapperCost;
+                        payableTotalCost -= wrapperCost;
+                    }
+                    else {
+                        totalCost += wrapperCost;
+                        payableTotalCost += wrapperCost;
+                    }
+
+                    totalRow.find("td:last").text(`${totalCost} TK.`);
+                    payableRow.find("td:last").text(`${payableTotalCost} TK.`);
+                    h5Tag2.html(`Total: <em> ${payableTotalCost} Tk. </em>`);
+                });
+            })(jQuery);
+
+            rowDiv1.appendTo($("#container_div"));
+        };
+
+    </script>
+</body>
+</html>
