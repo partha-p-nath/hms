@@ -1,0 +1,1046 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Landing Page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/customized_product_grouping.css" rel="stylesheet" />
+    <style>
+        /*#main_navigation_wrap ul > li:not(:last-child):before {
+            content: close-quote;
+            position: absolute;
+            right: 0;
+            width: 1px;
+            background: #fff;
+            height: 20px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }*/
+
+        #main_navigation_wrap .nav-item > .active, #main_navigation_wrap .nav-item:hover {
+            background-color: #3994f5;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            border-radius: 0.25rem !important;
+        }
+
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #ccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #fff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+
+        #categories_dropdown_container .shadow > div > a {
+            color: black;
+        }
+
+        #categories_dropdown_container .shadow > div:hover {
+            color: white !important;
+            background-color: #3994f5;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            border-radius: 0.25rem !important;
+        }
+
+        #categories_dropdown_container .shadow > div > a:hover {
+            text-decoration: none;
+            color: white !important;
+        }
+    </style>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/customized_product_grouping_v1.0.js"></script>
+</head>
+<body>
+    <div class="py-3">
+        <div class="container-fluid">
+            <div class="row align-items-baseline">
+                <div class="col-md-2 text-center">
+                    <div>
+                        <a href="//agamilabs.com/" class="logo">
+                            <img class="img-fluid" src="../Images/agami_logo.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <form class="clearfix search" method="GET" action="search.php">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <select class="border-primary btn" name="advance">
+                                    <option value="p">Product</option>
+                                    <option value="b">Buy Lead</option>
+                                </select>
+                            </div>
+                            <input name="ids" tabindex="1" placeholder="Search..." class="form-control border-primary" autocomplete="off">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3" style="align-self:end;">
+                    <div class="d-flex justify-content-center">
+                        <div class="media">
+                            <i class="fa fa-3x fa-user-o mr-3 text-primary" aria-hidden="true"></i>
+                            <div class="media-body">
+                                <a href="login.php" class="text-decoration-none text-secondary">Sign in</a> <br />
+                                <a href="plan.php" class="text-decoration-none text-secondary">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_navigation_wrap" class="sticky-top">
+        <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+            <div class="d-flex flex-row mx-auto">
+                <button class="navbar-toggler my-1 ml-1 mr-3" type="button" data-toggle="collapse" data-target="#collapsible_navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mr-auto" id="collapsible_navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2 active" href="#">Home</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Best Seller</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Top Trending</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Sourcing Requests</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Membership Plan</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Advertise With us</a> </li>
+                        <li class="nav-item mr-1"> <a class="nav-link text-white px-2" href="#">Contact Us</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid mx-3 mt-4">
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <div id="categories_dropdown_container" class="mr-4 mr-md-0">
+                    <h4 class="pb-2" style="border-bottom: 3px solid #3994f5;"><span style="background-color: #3994f5;" class="p-2 text-white rounded-left">Categories</span></h4>
+
+                    <div class="shadow border rounded">
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pharma Machineries
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu1">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Biotechnology Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="crystallizers.php">Crystallizers</a> </li>
+                                        <li class="dropdown-item"> <a href="distillation-column.php">Distillation / Purification Column</a> </li>
+                                        <li class="dropdown-item"> <a href="fermenters.php">Fermenters</a> </li>
+                                        <li class="dropdown-item"> <a href="filter-press.php">Filter Press</a> </li>
+                                        <li class="dropdown-item"> <a href="spray-dryers.php">Spray Dryers</a> </li>
+                                        <li class="dropdown-item"> <a href="thin-film-evaporators.php">Thin Film Evaporators</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Bulk Drug / API Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="ss-reactors.php">SS Reactors</a> </li>
+                                        <li class="dropdown-item"> <a href="nutsche-filters.php">Nutsche Filters</a> </li>
+                                        <li class="dropdown-item"> <a href="centrifuge.php">Centrifuge</a> </li>
+                                        <li class="dropdown-item"> <a href="vacuum-dryer.php">Vacuum Dryer</a></li>
+                                        <li class="dropdown-item"> <a href="storage-tank.php">Storage Tank</a></li>
+                                        <li class="dropdown-item"> <a href="ss-sparkling-filter.php">SS Sparkling Filter</a></li>
+                                        <li class="dropdown-item"> <a href="micro-pulveriser.php">Micro Pulveriser</a></li>
+                                        <li class="dropdown-item"> <a href="glass-reactor.php">Glass Reactor</a></li>
+                                        <li class="dropdown-item"> <a href="other-api-machine.php">Other Bulk Drud &amp; API Machineries</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Capsule Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="automatic-capsule-filling-machine.php">Automatic Capsule Filling and Sealing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="capsule-polishing-machine.php">Capsule Polishing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="empty-capsule-sorter.php">Empty Capsule Sorter</a></li>
+                                        <li class="dropdown-item"> <a href="semiautomatic-capsule-filling-machine.php">Semiautomatic Capsule Filling and Sealing Machine</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">I.V Fluid Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="autoclave.php">Autoclave</a></li>
+                                        <li class="dropdown-item"> <a href="form-fill-machineries.php">Form Fill &amp; Seal Machineries</a></li>
+                                        <li class="dropdown-item"> <a href="injection-molding-machine.php">Injection Molding Machines</a></li>
+                                        <li class="dropdown-item"> <a href="iv-fluid-bottle-labeling-machine.php">I.V Fluid Bottle Labeling machine</a></li>
+                                        <li class="dropdown-item"> <a href="iv-fluid-bottle-leak-test-machine.php">I.V Fluid Bottle Leak Test Machine</a></li>
+                                        <li class="dropdown-item"> <a href="super-heated-water-spray.php">Super Heated Water Spray</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Injection Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="ampoule-filling-machine.php">Ampoule filling machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-washing-machine.php">Ampoule washing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-inspection-machine.php">Ampoule/vial Inspection machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-labeling-machine.php">Ampoule/vial Labeling machine</a></li>
+                                        <li class="dropdown-item"> <a href="automatic-bung-washing-machine.php">Automatic Bung Washing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="bung-processor-cum-sterilizer.php">Bung Processor Cum Sterilizers</a></li>
+                                        <li class="dropdown-item"> <a href="dry-heat-sterilizers.php">Dry Heat Sterilizers (DHS)</a></li>
+                                        <li class="dropdown-item"> <a href="sterile-preparation-vessel.php">Sterile Preparation Vessel</a></li>
+                                        <li class="dropdown-item"> <a href="sterilization-tunnel.php">Sterilization Tunnel</a></li>
+                                        <li class="dropdown-item"> <a href="vial-filling-machine.php">Vial Filling and Sealing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="vial-washing-machine.php">Vial washing Machine</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Liquid Oral</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Soft Gelatin Capsules Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Tablet Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Hover me for more options</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"><a tabindex="-1" href="#">Second level</a></li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">Even More..</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu">
+                                                    <a class="dropdown-item" href="#">another level</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Finished Pharma Product
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu1">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Biotechnology Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="crystallizers.php">Crystallizers</a> </li>
+                                        <li class="dropdown-item"> <a href="distillation-column.php">Distillation / Purification Column</a> </li>
+                                        <li class="dropdown-item"> <a href="fermenters.php">Fermenters</a> </li>
+                                        <li class="dropdown-item"> <a href="filter-press.php">Filter Press</a> </li>
+                                        <li class="dropdown-item"> <a href="spray-dryers.php">Spray Dryers</a> </li>
+                                        <li class="dropdown-item"> <a href="thin-film-evaporators.php">Thin Film Evaporators</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Bulk Drug / API Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="ss-reactors.php">SS Reactors</a> </li>
+                                        <li class="dropdown-item"> <a href="nutsche-filters.php">Nutsche Filters</a> </li>
+                                        <li class="dropdown-item"> <a href="centrifuge.php">Centrifuge</a> </li>
+                                        <li class="dropdown-item"> <a href="vacuum-dryer.php">Vacuum Dryer</a></li>
+                                        <li class="dropdown-item"> <a href="storage-tank.php">Storage Tank</a></li>
+                                        <li class="dropdown-item"> <a href="ss-sparkling-filter.php">SS Sparkling Filter</a></li>
+                                        <li class="dropdown-item"> <a href="micro-pulveriser.php">Micro Pulveriser</a></li>
+                                        <li class="dropdown-item"> <a href="glass-reactor.php">Glass Reactor</a></li>
+                                        <li class="dropdown-item"> <a href="other-api-machine.php">Other Bulk Drud &amp; API Machineries</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Capsule Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="automatic-capsule-filling-machine.php">Automatic Capsule Filling and Sealing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="capsule-polishing-machine.php">Capsule Polishing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="empty-capsule-sorter.php">Empty Capsule Sorter</a></li>
+                                        <li class="dropdown-item"> <a href="semiautomatic-capsule-filling-machine.php">Semiautomatic Capsule Filling and Sealing Machine</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">I.V Fluid Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="autoclave.php">Autoclave</a></li>
+                                        <li class="dropdown-item"> <a href="form-fill-machineries.php">Form Fill &amp; Seal Machineries</a></li>
+                                        <li class="dropdown-item"> <a href="injection-molding-machine.php">Injection Molding Machines</a></li>
+                                        <li class="dropdown-item"> <a href="iv-fluid-bottle-labeling-machine.php">I.V Fluid Bottle Labeling machine</a></li>
+                                        <li class="dropdown-item"> <a href="iv-fluid-bottle-leak-test-machine.php">I.V Fluid Bottle Leak Test Machine</a></li>
+                                        <li class="dropdown-item"> <a href="super-heated-water-spray.php">Super Heated Water Spray</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Injection Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="ampoule-filling-machine.php">Ampoule filling machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-washing-machine.php">Ampoule washing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-inspection-machine.php">Ampoule/vial Inspection machine</a></li>
+                                        <li class="dropdown-item"> <a href="ampoule-labeling-machine.php">Ampoule/vial Labeling machine</a></li>
+                                        <li class="dropdown-item"> <a href="automatic-bung-washing-machine.php">Automatic Bung Washing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="bung-processor-cum-sterilizer.php">Bung Processor Cum Sterilizers</a></li>
+                                        <li class="dropdown-item"> <a href="dry-heat-sterilizers.php">Dry Heat Sterilizers (DHS)</a></li>
+                                        <li class="dropdown-item"> <a href="sterile-preparation-vessel.php">Sterile Preparation Vessel</a></li>
+                                        <li class="dropdown-item"> <a href="sterilization-tunnel.php">Sterilization Tunnel</a></li>
+                                        <li class="dropdown-item"> <a href="vial-filling-machine.php">Vial Filling and Sealing Machine</a></li>
+                                        <li class="dropdown-item"> <a href="vial-washing-machine.php">Vial washing Machine</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Liquid Oral</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Soft Gelatin Capsules Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Tablet Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Hover me for more options</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"><a tabindex="-1" href="#">Second level</a></li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">Even More..</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu">
+                                                    <a class="dropdown-item" href="#">another level</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Raw Material
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Packing Material
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Laboratory Instrument
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Service Provider
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                H.V.A.C
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Clean Room
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Containment Solutions
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Project Execution Agency
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Utilities
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-2">
+                            <a class="px-2" href="old-machineries-for-sale.php"> Old Machineries for Sale </a>
+                        </div>
+
+                        <div class="p-2">
+                            <a class="px-2" href="third-party-manufacturer.php"> Contract Manufacturing </a>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Spare Parts
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-2">
+                            <a class="px-2" href="medical-devices.php"> Medical Devices </a>
+                        </div>
+
+                        <div class="p-2">
+                            <a class="px-2" href="medical-instruments.php"> Medical Instruments </a>
+                        </div>
+
+                        <div class="dropdown dropright p-2">
+                            <a class="dropdown-toggle text-decoration-none text-dark px-2" href="#" role="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Other Equipment
+                            </a>
+
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu3">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Allied Machineries And Equipments</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-divider"></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Ointment Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-item"><a href="#">Other Pharma Machineries</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Powder Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item" tabindex="-1" href="#">Pilot/R&amp;D/Labscale Machineries</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="stainless-steel-furniture.php">Stainless steel Furniture's</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-2 rounded" style="        background-color: #3994f5;
+">
+                            <h6 class="text-decoration-none text-white"> All Categories </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9">
+                <div class="mt-3 mr-4">
+                    <div id="main_carousel_1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="img-fluid d-block w-100" style="height:320px;" src="../Images/product/images/product 01.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="img-fluid d-block w-100" style="height:320px;" src="../Images/product/images/product 02.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="img-fluid d-block w-100" style="height:320px;" src="../Images/product/images/product 03.jpg" alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#main_carousel_1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#main_carousel_1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <div id="horizontal_product_container"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function printPageNo(pageNo) {
+            console.log(`You clicked ${pageNo}.`);
+        };
+
+        loadProductData();
+
+        function loadProductData() {
+            //$.ajax({
+            //    url: "",
+            //    type: "POST",
+            //    contentType: "application/json; charset-utf-8",
+            //    success: function (resp) {
+            //        if (resp.error) {
+            //            toastr.error(resp.message);
+            //        } else {
+
+            //        }
+            //    }
+            //});
+
+            let resp = {
+                "error": false,
+                "data": {
+                    "product_category_title": "New Arrival",
+                    "seealllink": "",
+                    "products": [{
+                        "title": "Product Title - 01",
+                        "imagesrc": "/Images/product/images/product 01.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 02",
+                        "imagesrc": "/Images/product/images/product 02.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 03",
+                        "imagesrc": "/Images/product/images/product 03.jpg",
+                        "previousprice": "32000",
+                        "currentprice": "23000"
+                    },
+                    {
+                        "title": "Product Title - 04",
+                        "imagesrc": "/Images/product/images/product 04.jpg",
+                        "previousprice": "542000",
+                        "currentprice": "525000"
+                    },
+                    {
+                        "title": "Product Title - 05",
+                        "imagesrc": "/Images/product/images/product 05.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 06",
+                        "imagesrc": "/Images/product/images/product 06.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 07",
+                        "imagesrc": "/Images/product/images/product 07.jpg",
+                        "previousprice": "6000",
+                        "currentprice": "5000"
+                    },
+                    {
+                        "title": "Product Title - 08",
+                        "imagesrc": "/Images/product/images/product 08.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 09",
+                        "imagesrc": "/Images/product/images/product 09.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 10",
+                        "imagesrc": "/Images/product/images/product 10.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 11",
+                        "imagesrc": "/Images/product/images/product 11.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 12",
+                        "imagesrc": "/Images/product/images/product 12.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 13",
+                        "imagesrc": "/Images/product/images/product 13.jpg",
+                        "previousprice": "162000",
+                        "currentprice": "155000"
+                    },
+                    {
+                        "title": "Product Title - 14",
+                        "imagesrc": "/Images/product/images/product 14.jpg",
+                        "previousprice": "18299",
+                        "currentprice": "15999"
+                    },
+                    {
+                        "title": "Product Title - 15 mnshsedoiv",
+                        "imagesrc": "/Images/product/images/product 15.jpg",
+                        "previousprice": "62000",
+                        "currentprice": "55000"
+                    },
+                    {
+                        "title": "Product Title - 16 mnsdoiv",
+                        "imagesrc": "/Images/product/images/product 16.jpg",
+                        "previousprice": "123456",
+                        "currentprice": "112233"
+                    }
+                    ]
+                }
+            };
+
+
+            let productGroup1 = new ProductGroup("#horizontal_product_container", resp.data, 4);
+            console.log(productGroup1);
+            productGroup1.start();
+        };
+
+    </script>
+</body>
+</html>
